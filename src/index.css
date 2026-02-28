@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #05060a;
+  --fg: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+  --subtle: rgba(255, 255, 255, 0.6);
+  --mx: 50%;
+  --my: 35%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-white antialiased;
+    font-family: theme(fontFamily.sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: theme(fontFamily.display);
+  }
+
+  a {
+    @apply text-white/90 hover:text-white;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgba(168, 85, 247, 0.9);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-max {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-glow;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-white transition;
+  }
+
+  .btn:hover {
+    @apply bg-white/15;
+  }
+
+  .btn-primary {
+    @apply border-transparent bg-gradient-to-r from-fuchsia-500 via-violet-500 to-cyan-400 text-white;
+    background-size: 200% 200%;
+  }
+
+  .btn-primary:hover {
+    @apply animate-shimmer;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .subtle {
+    color: var(--subtle);
+  }
+}
+
+@layer utilities {
+  .cursor-glow {
+    background:
+      radial-gradient(
+        680px circle at var(--mx, 50%) var(--my, 35%),
+        rgba(34, 211, 238, 0.14),
+        transparent 60%
+      ),
+      radial-gradient(
+        560px circle at calc(var(--mx, 50%) + 160px) calc(var(--my, 35%) + 80px),
+        rgba(168, 85, 247, 0.12),
+        transparent 62%
+      ),
+      radial-gradient(
+        720px circle at calc(var(--mx, 50%) - 200px) calc(var(--my, 35%) + 120px),
+        rgba(59, 130, 246, 0.1),
+        transparent 65%
+      );
+    filter: blur(2px);
+  }
+
+  .animated-border {
+    position: relative;
+  }
+  .animated-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1.25rem;
+    background: linear-gradient(120deg, rgba(34,211,238,0.65), rgba(168,85,247,0.65), rgba(59,130,246,0.65));
+    background-size: 200% 200%;
+    filter: blur(12px);
+    opacity: 0.55;
+    z-index: -1;
+    animation: borderShift 10s ease-in-out infinite alternate;
+  }
+
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .grid-fade {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at top, black 40%, transparent 72%);
+  }
+
+  .hero-grid {
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(34,211,238,0.10), transparent 45%),
+      radial-gradient(circle at 90% 20%, rgba(168,85,247,0.10), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(59,130,246,0.10), transparent 55%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: auto, auto, auto, 52px 52px, 52px 52px;
+    mask-image: radial-gradient(ellipse at top, black 45%, transparent 78%);
+  }
+}
+
+@keyframes borderShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
