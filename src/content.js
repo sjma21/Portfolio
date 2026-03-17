@@ -120,6 +120,19 @@ export const content = {
         ],
       },
       {
+        title: 'Gasless Vault — Upgradeable Meta-Tx (OP Sepolia)',
+        description:
+          'A UUPS-upgradeable ERC-20 token vault on Optimism Sepolia supporting gasless transactions via ERC-2771 meta-transactions — users sign off-chain, a trusted relayer submits and pays gas.',
+        tags: ['Solidity', 'Foundry', 'UUPS', 'ERC-2771', 'EIP-712', 'OP Sepolia'],
+        links: { live: null, code: 'https://github.com/sjma21/Upgradeable_gasless_transaction' },
+        highlights: [
+          'Implemented GaslessVault behind an ERC1967 proxy with UUPS upgrade support',
+          'Built full ERC-2771 forwarder flow: off-chain EIP-712 signing → relayer submits → vault recovers original sender via _msgSender()',
+          'Deployed forwarder, proxy, and implementation on OP Sepolia (verified on-chain)',
+          'Wrote a Forge test suite (29 tests) with ~91% line coverage and replay protection via forwarder nonces',
+        ],
+      },
+      {
         title: 'Sustainabite',
         description:
           'A full-stack MERN web app for managing food donation and distribution workflows, built with a React frontend and a Node.js/Express backend with MongoDB for data storage.',
