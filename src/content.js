@@ -133,6 +133,19 @@ export const content = {
         ],
       },
       {
+        title: 'Merkle Airdrop',
+        description:
+          'A gas-efficient token airdrop system in Solidity where eligible recipients are stored off-chain as a Merkle tree — only the root lives on-chain, and users submit a Merkle proof to claim tokens.',
+        tags: ['Solidity', 'Foundry', 'Merkle Tree', 'OpenZeppelin', 'keccak256', 'Node.js'],
+        links: { live: null, code: 'https://github.com/sjma21/Merkle_Airdrop' },
+        highlights: [
+          'Built core MerkleAirdrop contract with immutable on-chain root and proof verification via keccak256 leaf encoding',
+          'Prevented double-claiming with a claimed mapping and replay-safe claim() logic',
+          'Wrote off-chain Merkle tree generator (Node.js + merkletreejs) to produce roots and per-address proofs',
+          'Deployed with Foundry (Forge) — supports both local Anvil and testnet/mainnet with --verify',
+        ],
+      },
+      {
         title: 'Sustainabite',
         description:
           'A full-stack MERN web app for managing food donation and distribution workflows, built with a React frontend and a Node.js/Express backend with MongoDB for data storage.',
