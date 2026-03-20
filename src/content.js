@@ -108,6 +108,23 @@ export const content = {
   projects: {
     personal: [
       {
+        title: 'AI Interview Simulator',
+        description:
+          'A full-stack, AI-powered interview preparation platform with 5 distinct tools — chat-based mock interviews, PDF quiz generation, an AI study assistant, in-browser code practice (Monaco Editor), and a fully voice-driven interview mode.',
+        tags: ['React', 'TypeScript', 'Node.js', 'Express', 'OpenAI', 'Monaco Editor', 'Web Speech API'],
+        links: {
+          live: 'https://ai-interview-simulator-rosy.vercel.app/',
+          code: 'https://github.com/sjma21/ai-interview-simulator',
+        },
+        highlights: [
+          'Built 5 interview prep modes: mock interviews, PDF quiz, study planner, code practice, and real voice interview',
+          'Integrated OpenAI (via OpenRouter) with structured prompt engineering for scoring, hints, and per-answer feedback',
+          'Implemented voice-first UX using Web Speech API (TTS + STT) with real-time transcription',
+          'Embedded Monaco Editor (VS Code quality) for in-browser coding challenges across 6 languages',
+          'Zero TypeScript errors, zero ESLint errors — production-quality codebase deployed on Vercel',
+        ],
+      },
+      {
         title: 'HostelMitra',
         description:
           'A hostel discovery platform that makes it easy to find and compare hostels with the right fit (location, budget, and amenities) through a clean, user-friendly interface.',
