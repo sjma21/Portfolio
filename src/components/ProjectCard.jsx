@@ -9,8 +9,8 @@ export function ProjectCard({ project }) {
       className="glass group relative overflow-hidden p-6"
     >
       <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-        <div className="absolute -left-24 -top-24 h-56 w-56 rounded-full bg-fuchsia-500/15 blur-2xl" />
-        <div className="absolute -bottom-24 -right-24 h-56 w-56 rounded-full bg-cyan-400/15 blur-2xl" />
+        <div className="absolute -left-24 -top-24 h-56 w-56 rounded-full bg-emerald-500/15 blur-2xl" />
+        <div className="absolute -bottom-24 -right-24 h-56 w-56 rounded-full bg-amber-400/12 blur-2xl" />
       </div>
 
       <div className="relative">
@@ -29,7 +29,7 @@ export function ProjectCard({ project }) {
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             {project.highlights.map((h) => (
               <li key={h} className="flex gap-2">
-                <span className="mt-1 inline-block h-2 w-2 flex-none rounded-full bg-white/30" />
+                <span className="mt-1 inline-block h-2 w-2 flex-none rounded-full bg-emerald-400/60" />
                 <span>{h}</span>
               </li>
             ))}

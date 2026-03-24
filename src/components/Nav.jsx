@@ -27,15 +27,15 @@ export function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink-950/60 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-emerald-500/15 bg-ink-950/70 backdrop-blur-xl">
       <div className="container-max flex h-16 items-center justify-between">
         <button
           type="button"
           onClick={() => scrollToId('top')}
           className="group inline-flex items-center gap-2 font-display text-sm tracking-wide text-white/90"
         >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/10 transition group-hover:bg-white/15">
-            ✦
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/15 ring-1 ring-emerald-500/30 transition group-hover:bg-emerald-500/25 text-emerald-400">
+            ⬡
           </span>
           <span className="hidden items-center gap-2 sm:inline-flex">
             <span>{content.person.name}</span>
@@ -52,8 +52,8 @@ export function Nav() {
               type="button"
               onClick={() => scrollToId(l.id)}
               className={cx(
-                'rounded-xl px-3 py-2 text-sm text-white/70 transition hover:bg-white/5 hover:text-white',
-                active === l.id && 'bg-white/10 text-white',
+                'rounded-xl px-3 py-2 text-sm text-white/70 transition hover:bg-emerald-500/8 hover:text-emerald-300',
+                active === l.id && 'bg-emerald-500/12 text-emerald-300 ring-1 ring-emerald-500/20',
               )}
             >
               {l.label}
@@ -110,8 +110,8 @@ export function Nav() {
                     scrollToId(l.id)
                   }}
                   className={cx(
-                    'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm text-white/75 hover:bg-white/5 hover:text-white',
-                    active === l.id && 'bg-white/10 text-white',
+                    'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-sm text-white/75 hover:bg-emerald-500/8 hover:text-emerald-300',
+                    active === l.id && 'bg-emerald-500/12 text-emerald-300',
                   )}
                 >
                   <span>{l.label}</span>

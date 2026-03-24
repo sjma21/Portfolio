@@ -3,7 +3,7 @@ export function SectionHeading({ eyebrow, title, subtitle }) {
     <div className="mb-8">
       {eyebrow && (
         <div className="chip mb-3 w-fit">
-          <span className="h-2 w-2 rounded-full bg-gradient-to-r from-fuchsia-500 to-cyan-400" />
+          <span className="h-2 w-2 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
           <span className="uppercase tracking-wider">{eyebrow}</span>
         </div>
       )}
