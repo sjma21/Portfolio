@@ -102,12 +102,12 @@ function NodeField({ count = 70 }) {
   }, [])
 
   const colors = useMemo(() => {
-    // tuned for both modes; light mode is softer
-    const cyan = new THREE.Color('#22d3ee')
-    const violet = new THREE.Color('#a855f7')
-    const line = theme === 'dark' ? cyan : new THREE.Color('#0ea5e9')
-    const point = theme === 'dark' ? violet : new THREE.Color('#6366f1')
-    return { line, point }
+    // blockchain palette: emerald nodes, cyan/amber lines
+    const emerald = new THREE.Color('#10b981')
+    const amber = new THREE.Color('#f59e0b')
+    const line = theme === 'dark' ? new THREE.Color('#06b6d4') : new THREE.Color('#0891b2')
+    const point = theme === 'dark' ? emerald : new THREE.Color('#059669')
+    return { line, point, amber }
   }, [theme])
 
   useFrame(({ clock }, delta) => {
@@ -129,12 +129,12 @@ function NodeField({ count = 70 }) {
 
     // twinkle (cheap but effective)
     if (pointMat.current) {
-      pointMat.current.size = 0.045 + Math.sin(t * 1.25) * 0.005
-      pointMat.current.opacity = (theme === 'dark' ? 0.85 : 0.55) + Math.sin(t * 0.9) * 0.06
+      pointMat.current.size = 0.055 + Math.sin(t * 1.25) * 0.008
+      pointMat.current.opacity = (theme === 'dark' ? 0.92 : 0.6) + Math.sin(t * 0.9) * 0.06
     }
     if (lineMat.current) {
-      const base = theme === 'dark' ? 0.16 : 0.1
-      lineMat.current.opacity = base + Math.sin(t * 0.7) * 0.025
+      const base = theme === 'dark' ? 0.22 : 0.12
+      lineMat.current.opacity = base + Math.sin(t * 0.7) * 0.03
     }
   })
 
@@ -145,7 +145,7 @@ function NodeField({ count = 70 }) {
           ref={lineMat}
           color={colors.line}
           transparent
-          opacity={theme === 'dark' ? 0.16 : 0.10}
+          opacity={theme === 'dark' ? 0.22 : 0.12}
         />
       </lineSegments>
 
@@ -153,10 +153,10 @@ function NodeField({ count = 70 }) {
         <pointsMaterial
           ref={pointMat}
           color={colors.point}
-          size={0.045}
+          size={0.055}
           sizeAttenuation
           transparent
-          opacity={theme === 'dark' ? 0.85 : 0.55}
+          opacity={theme === 'dark' ? 0.92 : 0.6}
         />
       </points>
     </group>
